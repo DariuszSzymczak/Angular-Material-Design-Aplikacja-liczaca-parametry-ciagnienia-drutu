@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/dist/projekt'));
 
 app.get('/*', function(req,res) {
 
-res.sendFile('./dist/projekt/');
+res.sendFile(express.static(`${__dirname}/dist/projekt/index.html`));
 
 });
 
