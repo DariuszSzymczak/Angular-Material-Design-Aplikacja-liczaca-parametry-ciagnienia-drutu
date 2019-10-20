@@ -15,7 +15,6 @@
   },
   "start": "node server.js",
   "postinstall": "ng build --aot -prod",
-  "heroku-postbuild": "ng build --prod",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.7",
