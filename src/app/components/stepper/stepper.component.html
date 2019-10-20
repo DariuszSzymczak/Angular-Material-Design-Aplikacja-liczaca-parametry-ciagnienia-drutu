@@ -1,0 +1,59 @@
+<mat-progress-bar id="bar1" mode="determinate" [value]="progress" color=""></mat-progress-bar>
+<form [formGroup]="firstFormGroup">
+  <mat-vertical-stepper linear="false"  #stepper>
+    <mat-step [stepControl]="firstCtrl">
+
+      <ng-template matStepLabel>Podaj średnicę wejściową:</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="wpisz wymiar w [ mm ]" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext type="button" (click)="progresAdd()">Dalej</button>
+      </div>
+
+    </mat-step>
+    <mat-step [stepControl]="secondCtrl">
+      <ng-template matStepLabel>Podaj średnicę wyjściową</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="wpisz wymiar w [ mm ]" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious type="button">Cofnij</button>
+        <button mat-button matStepperNext type="button" (click)="progresAdd()">Dalej</button>
+      </div>
+
+    </mat-step>
+    <mat-step [stepControl]="thirdCtrl">
+
+      <ng-template matStepLabel>Podaj minimalny ubytek</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="wpisz wymiar w [ % ]" formControlName="thirdCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious type="button" (click)="progressSub()">Cofnij</button>
+        <button mat-button matStepperNext type="button" (click)="progresAdd()">Dalej</button>
+      </div>
+
+    </mat-step>
+    <mat-step [stepControl]="fourthCtrl">
+
+      <ng-template matStepLabel>Podaj maksymalny ubytek</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="wpisz wymiar w [ % ]" formControlName="fourthCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious type="button" (click)="progressSub()">Cofnij</button>
+        <button mat-button matStepperNext type="button" (click)="showFrom(); progresAdd()">Dalej</button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Pokaż Wyniki</ng-template>
+      Zakończono proces wprowadzania danych.
+      <div>
+        <button mat-button matStepperPrevious type="button" (click)="progressSub()">Cofnij</button>
+        <button mat-button (click)="stepper.reset(); progressReset()" type="button">Reset</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>
