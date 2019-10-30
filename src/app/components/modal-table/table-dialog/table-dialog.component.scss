@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+@include mat-core();
+.table1{
+  width:100%;
+}
+th{
+  background:#c2185b;
+  text-align: center;
+  font-size:25px;
+}
+td{
+  text-align: center;
+}
+#slider{
+  padding:40px;
+  width:800px;
+  margin:auto;
+  margin-top:30px;
+}
+
+#button1{
+  width: 100%;
+  margin: auto;
+  background: #c2185b;
+}
+
+.label1{
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+}

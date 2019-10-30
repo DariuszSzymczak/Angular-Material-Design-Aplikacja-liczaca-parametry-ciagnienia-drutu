@@ -1,5 +1,5 @@
 <mat-progress-bar id="bar1" mode="determinate" [value]="progress" color=""></mat-progress-bar>
-<form [formGroup]="firstFormGroup">
+<form [formGroup]="firstFormGroup" >
   <mat-vertical-stepper linear="false"  #stepper>
     <mat-step >
 
@@ -18,7 +18,7 @@
         <input matInput placeholder="wpisz wymiar w [ mm ]" formControlName="secondCtrl" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious type="button">Cofnij</button>
+        <button mat-button matStepperPrevious type="button" (click)="progressSub()">Cofnij</button>
         <button mat-button matStepperNext type="button" (click)="progresAdd()">Dalej</button>
       </div>
 
@@ -49,10 +49,10 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Pokaż Wyniki</ng-template>
-      Zakończono proces wprowadzania danych.
       <div>
+        <app-modal-table [dataTable]="sendFields()" ></app-modal-table>
         <button mat-button matStepperPrevious type="button" (click)="progressSub()">Cofnij</button>
-        <button mat-button (click)="stepper.reset(); progressReset()" type="button">Reset</button>
+        <button mat-button (click)="stepper.reset(); progressReset()" type="button" >Reset</button>
       </div>
     </mat-step>
   </mat-vertical-stepper>

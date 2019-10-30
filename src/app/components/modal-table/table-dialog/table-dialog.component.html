@@ -1,0 +1,17 @@
+<mat-tab-group>
+  <mat-tab label="QiMin">
+    <mat-label class="label1">Obliczenia dla d0 = {{this.dataSource.d0}} oraz dk = {{this.dataSource.dk}}</mat-label>
+    <app-table-data [data]="calculateData(this.dataSource.qimin,false)"></app-table-data>
+  </mat-tab>
+  <mat-tab label="QiMax">
+    <mat-label class="label1">Obliczenia dla d0 = {{this.dataSource.d0}} oraz dk = {{this.dataSource.dk}}</mat-label>
+    <app-table-data [data]="calculateData(this.dataSource.qimax,true)"></app-table-data>
+  </mat-tab>
+  <mat-tab label="Zakres">
+    <mat-label class="label1">Wybierz wartość z zakresu < {{countMin-1}} : {{countMax-1}} ></mat-label>
+    <mat-slider id="slider"  fxLayoutAlign="center center" fxFlex="80" thumbLabel tickInterval="auto"
+                [min]="countMin-1" [max]="countMax-1" [(ngModel)]="steps" [value]="countMin-1"></mat-slider>
+    <button *ngIf="!renderTable"mat-raised-button id="button1" (click)="renderTable = !renderTable">Licz</button>
+    <app-table-data [data]="calculateSteps()" *ngIf="renderTable"></app-table-data>
+  </mat-tab>
+</mat-tab-group>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-stepper',
@@ -8,9 +8,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StepperComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {
+  }
+
   firstFormGroup: FormGroup;
   progress = 0;
+
+
   ngOnInit() {
     this.firstFormGroup = this.formBuilder.group({
       firstCtrl: ['', Validators.required],
@@ -20,18 +24,30 @@ export class StepperComponent implements OnInit {
     });
   }
 
-  progresAdd(){
+  progresAdd() {
     this.progress += 25;
   }
-  progressSub(){
+
+  progressSub() {
     this.progress -= 25;
   }
-  progressReset(){
+
+  progressReset() {
     this.progress = 0;
   }
 
+
   showFrom() {
-    console.log(this.firstFormGroup.get('firstCtrl').value);
+    console.log(this.sendFields());
+  }
+
+  public sendFields(): object {
+    return {
+      d0: this.firstFormGroup.get('firstCtrl').value,
+      dk: this.firstFormGroup.get('secondCtrl').value,
+      qimin: this.firstFormGroup.get('thirdCtrl').value,
+      qimax: this.firstFormGroup.get('fourthCtrl').value,
+    };
   }
 
 }

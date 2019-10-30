@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+@include mat-core();
+.table1{
+  width:100%;
+}
+th{
+  background:#c2185b;
+  text-align: center;
+  font-size:25px;
+}
+td{
+  text-align: center;
+}
+h3 span{
+  font-size:20px;
+  position: relative;
+  top:-5px;
+  font-weight: 400;
+}
